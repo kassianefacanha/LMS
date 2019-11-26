@@ -17,32 +17,30 @@
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
           var resposta = this.responseText;
           var listaUsuarios = JSON.parse(resposta);
-          listaUsuarios.forEach(element => {// A CADA ELEMENTO DA LISTA 
-            document.getElementById("angel").innerHTML +=//ESCREVA O QUE TEM ABAIXO
-            "<b>Nome: </b>" 
-            + element.results.title +
-            
-            /*"<b>Imagem de perfil: </br>" +
-            element.perfil +
+          document.getElementById("angel").innerHTML =
+            "<b>Nome: </b>" +
+            listaUsuarios[0].nome +
+            "<b>Imagem de perfil: </br>" +
+            listaUsuarios[0].perfil +
             "<b>Gênero: </br>" +
-            element.genero +
+            listaUsuarios[0].genero +
             "<b>Idade: </br>" +
-            element.idade +
+            listaUsuarios[0].idade +
             "<br><b>Nascimento: </b>" +
-            new Date(element.nascimento).toLocaleDateString("pt-BR"); +
+            new Date(listaUsuarios[0].nascimento).toLocaleDateString("pt-BR");
             "<b>Telefone móvel: </br>" +
-            element.movel +
+            listaUsuarios[0].movel +
             "<b>Telefone fixo: </br>" +
-            element.fixo +
+            listaUsuarios[0].fixo +
             "<br><b>Email: </b>" +
-            element.email +
+            listaUsuarios[0].email +
             "<b>Endereço: </br>" +
-            element.movel +*/
-          });
+            listaUsuarios[0].movel +
+            
         }
       };
-      xhttp.open("GET", "https://randomuser.me/api/");//A REQUISIÇÃO HTTP VAI SER ABERTA PELO METOTO GET E PASSO MEU JSON
-      xhttp.send(null);// N ENVIO NADA
+      xhttp.open("GET", "https://randomuser.me/api/");
+      xhttp.send(null);
     }
   </script>
 </html>
