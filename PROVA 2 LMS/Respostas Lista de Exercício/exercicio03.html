@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Exercício 02</title>
+  </head>
+  <body>
+    <label for="bebida">Cadastrar Bebida:</label>
+    <input type="text" id="bebida" name="bebida" />
+    <button onclick="adicionar()">Adicionar</button>
+    <p>Lista de Bebidas Cadastradas</p>
+    <ol id="lista">
+      <li>Café</li>
+      <li>Leite</li>
+      <li>Água</li>
+    </ol>
+    <script>//MESMA FUNÇÃO DO ANTERIOR MAS INSERE PRIMEIRO
+      function adicionar() {
+        var bebida = document.getElementById("bebida").value.trim();//PEGA O VALOR DO PELO ID E DEIXA SEM ESPARÇOS DESNECESSÁRIOS
+        if (bebida === "") {
+          alert("O campo bebida está vazio!!");
+        } else {
+          var item = document.createElement("li");//ATRIBUI A CRIAÇÃO A UM ELEMENTI LI
+          item.innerHTML = bebida;// DIZ PRA ESCRVER O NO LI O QUE A VARIAVEL BEBIDA RECEBEU
+          var lista = document.getElementById("lista");//RECEBENDO O INPUT PELO ID 
+          var primeiro = lista.firstElementChild; //RECEBE o primeiro elemento filho do elemento LISTA
+          lista.insertBefore(item, primeiro);//DIZ QUE É PRA INSERIR O ITEM DEPOIS DE PRIMEIRO ELEMENTO
+        }
+      }
+    </script>
+  </body>
+</html>

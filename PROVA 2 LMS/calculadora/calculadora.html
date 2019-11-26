@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript">
+    function limpar(){
+        document.getElementById('visor').value = '';//ESCREVE O VALOR VAZIO NO VISOR
+        }
+function preencher(valor){
+    document.getElementById('visor').value += valor;// FUNÇÃO RECURSIVA ONDE PEGA O VALOR QUE ESTÁ APARECENDO O VISOR E AINDA FAZ APARECER NO VISOR O VALOR QUE A PESSOA DIGITAR
+    }
+
+function calcular(){
+    var resultado = 0;
+    resultado= document.getElementById('visor').value;//RECEBE O VALOR QUE TÁ ESCRITO NO VISOR(EX: 4*5)
+    document.getElementById('visor').value ="";//LIMPA O VISOR DEIXANDO ELE VAZIO
+    document.getElementById('visor').value= eval(resultado);//MOSTRA NO VISOR O RESULTADO QUE VAI SER CALCULADO NA FUNÇÃO EVAL (FUNÇÃO ESSA JÁ DEFINIDA NA LINGUAGEM ONDE CALCULA FUNÇÃO COMO SOMA SUB DIVISÃO ETC E SÓ RETORNA O VALOR OU SEJA O RESULTADO)
+          
+            }
+
+
+
+
+    </script>
+<style type="text/css">
+    .botão{
+        width: 50px;
+        height: 50px;
+        background: rgb(109, 86, 86);
+        color: white;
+        font-family:'Times New Roman';
+    }
+
+    .visor{
+        font-size: 1.5em;
+        color:wheat;
+        
+    }
+
+    body{
+        position: absolute;
+        border: 1px solid black;
+        width: 230px;
+        height: 350px;
+        margin-left: 10%; 
+}
+
+
+    </style>
+    </head>
+<body> 
+
+    
+    <input type="text" id= "visor" size= "13" class= "visor"/><br></br>
+
+<input type = "submit" class= "botão" value="1" onclick="preencher(1)"/>
+<input type = "submit" class= "botão" value="2" onclick="preencher(2)"/>
+<input type = "submit" class= "botão" value="3" onclick="preencher(3)"/>
+<input type = "submit" class= "botão" value="/" onclick="preencher('/')"/>
+<br></br>
+
+<input type = "submit" class= "botão" value="4" onclick="preencher(4)"/>
+<input type = "submit" class= "botão" value="5" onclick="preencher(5)"/>
+<input type = "submit" class= "botão" value="6" onclick="preencher(6)"/>
+<input type = "submit" class= "botão" value="*" onclick="preencher('*')"/>
+
+<br></br>
+<input type = "submit" class= "botão" value="7" onclick="preencher(7)"/>
+<input type = "submit" class= "botão" value="8" onclick="preencher(8)"/>
+<input type = "submit" class= "botão" value="9" onclick="preencher(9)"/>
+<input type = "submit" class= "botão" value="+" onclick="preencher('+')"/>
+
+<br></br>
+<input type = "submit" class= "botão" value="0" onclick="preencher(0)"/>
+<input type = "submit" class= "botão" value="=" onclick="calcular();s"/>
+<input type = "submit" class= "botão" value="C" onclick="limpar();"/>
+<input type = "submit" class= "botão" value="-"onclick="preencher('-')"/>
+
+
+
+</body>
+    </html> 

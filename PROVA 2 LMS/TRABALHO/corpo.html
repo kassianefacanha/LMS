@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Consulta AJAX com GET</title>
+  </head>
+  <body>
+    <h2>O Objeto XMLHttpRequest</h2>
+
+    <button onclick="carregarJSON()">Request Data</button>
+
+    <p id="angel"></p>
+  </body>
+  <script>
+    function carregarJSON() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+          var resposta = this.responseText;
+          var listaUsuarios = JSON.parse(resposta);
+          listaUsuarios.forEach(element => {// A CADA ELEMENTO DA LISTA 
+            document.getElementById("angel").innerHTML +=//ESCREVA O QUE TEM ABAIXO
+            "<b>Nome: </b>" 
+            + element.results.title +
+            
+            /*"<b>Imagem de perfil: </br>" +
+            element.perfil +
+            "<b>Gênero: </br>" +
+            element.genero +
+            "<b>Idade: </br>" +
+            element.idade +
+            "<br><b>Nascimento: </b>" +
+            new Date(element.nascimento).toLocaleDateString("pt-BR"); +
+            "<b>Telefone móvel: </br>" +
+            element.movel +
+            "<b>Telefone fixo: </br>" +
+            element.fixo +
+            "<br><b>Email: </b>" +
+            element.email +
+            "<b>Endereço: </br>" +
+            element.movel +*/
+          });
+        }
+      };
+      xhttp.open("GET", "https://randomuser.me/api/");//A REQUISIÇÃO HTTP VAI SER ABERTA PELO METOTO GET E PASSO MEU JSON
+      xhttp.send(null);// N ENVIO NADA
+    }
+  </script>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Consulta AJAX com GET</title>
+  </head>
+  <body>
+    <h2>O Objeto XMLHttpRequest</h2>
+
+    <button onclick="carregarJSON()">Request Data</button>
+
+    <p id="angel"></p>
+  </body>
+  <script>//AQUI MOSTRA TODOS OS ELEMENTOS DA LISTA DO JSON
+
+    function carregarJSON() {
+      var xhttp = new XMLHttpRequest();//CRIA UMA NOVA REQUISIÇÃO XML HTTP
+      xhttp.onreadystatechange = function() { //LER O ESTADO MUDADO 
+        if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
+          //4 É ESTADO PRONTO E DE 200 E MENOS DE 300 O STATUS TÁ OK
+          var resposta = this.responseText;//REQUISIÇÃO OU RESPOSTA TEXTO
+          var listaUsuarios = JSON.parse(resposta);//LISTA DE USUÁRIOS CONVERTIDA 
+          listaUsuarios.forEach(element => {// A CADA ELEMENTO DA LISTA 
+            document.getElementById("angel").innerHTML +=//ESCREVA O QUE TEM ABAIXO
+              "<br><br><b>Nome: </b>" +
+              element.nome +
+              "<br><b>Email: </b>" +
+              element.email +
+              "<br><b>Nascimento: </b>" +
+              new Date(element.nascimento).toLocaleDateString("pt-BR");
+          });
+        }
+      };
+      xhttp.open("GET", "https://lmsqxd.herokuapp.com/usuarios");//A REQUISIÇÃO HTTP VAI SER ABERTA PELO METOTO GET E PASSO MEU JSON
+      xhttp.send(null);// N ENVIO NADA
+    }
+  </script>
+</html>
