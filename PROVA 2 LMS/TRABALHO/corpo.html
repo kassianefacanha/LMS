@@ -11,36 +11,20 @@
     <p id="angel"></p>
   </body>
   <script>
-    function carregarJSON() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
+    //AQUI SÓ VAI MOSTRAR O PRIMEIRO ELEMENTO DA LISTA DO JSON
+    function carregarJSON(){
+      var xhttp = new XMLHttpRequest();//CRIA UMA NOVA REQUISIÇÃO XML HTTP
+      xhttp.onreadystatechange = function() { //LER O ESTADO MUDADO 
         if (this.readyState == 4 && this.status >= 200 && this.status < 300) {
-          var resposta = this.responseText;
-          var listaUsuarios = JSON.parse(resposta);
-          document.getElementById("angel").innerHTML =
+          //4 É ESTADO PRONTO E DE 200 E MENOS DE 300 O STATUS TÁ OK
+          var resposta = this.responseText;//REQUISIÇÃO OU RESPOSTA TEXTO
+          var listaUsuarios = JSON.parse(resposta);//LISTA DE USUÁRIOS CONVERTIDA 
+          document.getElementById("angel").innerHTML =//ESCREVA O QUE TEM ABAIXO NO CASO O Q TA NA POSIÇÃO 0 DA LISTA
             "<b>Nome: </b>" +
-            listaUsuarios[0].nome +
-            "<b>Imagem de perfil: </br>" +
-            listaUsuarios[0].perfil +
-            "<b>Gênero: </br>" +
-            listaUsuarios[0].genero +
-            "<b>Idade: </br>" +
-            listaUsuarios[0].idade +
-            "<br><b>Nascimento: </b>" +
-            new Date(listaUsuarios[0].nascimento).toLocaleDateString("pt-BR");
-            "<b>Telefone móvel: </br>" +
-            listaUsuarios[0].movel +
-            "<b>Telefone fixo: </br>" +
-            listaUsuarios[0].fixo +
-            "<br><b>Email: </b>" +
-            listaUsuarios[0].email +
-            "<b>Endereço: </br>" +
-            listaUsuarios[0].movel +
-            
+            listaUsuarios[name]
+   
         }
       };
-      xhttp.open("GET", "https://randomuser.me/api/");
-      xhttp.send(null);
+      xhttp.open("GET", "https://randomuser.me/api/");//A REQUISIÇÃO HTTP VAI SER ABERTA PELO METOTO GET E PASSO MEU JSON
+      xhttp.send(null);// N ENVIO NADA
     }
-  </script>
-</html>
